@@ -1,0 +1,605 @@
+FORMAT: 1A
+HOST: http://private-b5f80-insantani2.apiary-mock.com
+
+# Insantani
+
+## Getting Started with Insantani
+Below you will find a current list of the available methods on our Application. If you need help or support, please head over to our talk page.
+
+### Useful Links
+
+* [asdas]()
+* [asdas]()
+* [adsa]()
+
+### Typical Server Responses
+* 200 `OK` - The request was successful (some API calls may return 201 instead).
+* 201 `Created` - The request was successful and a resource was created.
+* 204 `No Content` - The request was successful but there is no representation to return (that is, the response is empty).
+* 400 `Bad Request` - The request could not be understood or was missing required parameters. 
+* 401 `Unauthorized` - Authentication failed or user does not have permissions for the requested operation.
+* 404 `Not Found` - Resource was not found.
+* 500 `Service Unavailable` - The service is temporary unavailable (e.g. scheduled Platform Maintenance). Try again later.
+
+## FeedBack
+* If you have ideas about how we can improve this documentation (or want to tell us how great it is), email us at **insantani@gmail.com**,
+* If you have questions about using these APIs, check out our **documentation**, which contains articles describing complex use cases. (Some use cases are also listed briefly in this API reference under Use Cases).
+* If you still have a question, you can contact us by email **insantani@gmail.com**.
+
+
+# Group HomePage 
+
+## Feed [/feed?page=0&limit=30]
+
+Get all the articles.
+
+### Get list of Articles [GET]
+
+**Return**
+* Object[Article] -> An object of Article. 
+
++ Request (application/json)
+
+        List All farm (http://api.insantani.com/farm)
+
++ Response 200 (application/json)
+        
+            {"message": "OK",
+            "state" : "Articles",
+            "result":[
+                {
+                    "article_id"  : 1,
+                    "article_title": "Why choose organic?",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "author"      : "Izhar Almizan",
+                    "picture_url"     : "/files/image/Organic.png",
+                    "url"         : "/homepage/feed/article/1",
+                    "content" : "We choose organic vegetables because of many reasons. We can avoid dangerous chemicals, benefit from many nutrients, it tastes much better and avoid other substances that may harm you!"
+                },{
+                    "article_id"  : 2,
+                    "article_title": "Vegetarian is the new trend!",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "author"      : "Yohana Kanisia",
+                    "picture_url"     : "/files/image/vegans.png",
+                    "url"         : "/homepage/feed/article/2",
+                    "content" : "People become vegetarians for many reasons, includinghealth, religious convictions, concerns about animal welfare or the use of antibiotics and hormones in livestock, or a desire to eat in a way that avoids excessive use of environmental resources. Some people follow a largely vegetarian diet because they cant afford to eat meat." 
+                },{
+                    "article_id"  : 3,
+                    "article_title": "Vegan diet must-knows",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "author"      : "William Henry",
+                    "picture_url"     : "/files/image/diet.png",
+                    "url"         : "/homepage/feed/article/3",
+                    "content" : "Veganism has come a long way: once reserved for peace-loving hippies, interest in a totally animal-free diet is at an all-time high, with celebrities like Bill Clinton, Alicia Silverstone, Jay Z, and Beyoncé leading the charge."
+                    
+                }
+            ]
+            }
+        
+        
+## See article detail [/feed/article/{article_id}]
+
+To see the detail of an article.
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">article_id</td>
+<td style="padding-left: 0;">ID of the article</td> </tr>
+</table>
+
+### Get the detail of article [GET]
+
+**Return**
+* Article -> An object Article. 
+
++ Parameter
+    + article_id (required,number,`1`) - ID of article in the form of an integer.
+
++ Response 200 (application/json)
+
+             {
+                    "article_id"  : 1,
+                    "article_title": "Why choose organic?",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "author"      : "Izhar Almizan",
+                    "picture_url"     : "/files/image/Organic.png",
+                    "url"         : "/homepage/feed/article/1",
+                    "content" : "We choose organic vegetables because of many reasons. We can avoid dangerous chemicals, benefit from many nutrients, it tastes much better and avoid other substances that may harm you!"
+        }
+
+
+
+        
+## Shopping [/shopping?page=0&limit=30]
+
+Get a list of all products
+
+### Get list of product [GET]
+
+**Return**
+* Object[Product] -> An object of  Products. 
+
++ Request (application/jason)
+
+        List All Product (http://api.insantani.com/product)
+
++ Response 200 (application/json)
+
+            {"message": "OK",
+            "state" : "List of all product",
+            "result":[
+                {
+                    "product_id"  : 1,
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "url"         : "/products/1",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                },{
+                    "product_id"  : 2,
+                    "product_name": "Tomato",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Yohana Kanisia",
+                    "price"       : "Rp 500/ounce",
+                    "stock"       : "100 ounces",
+                    "picture_url"     : "/files/image/Tomato.png",
+                    "url"         : "/products/2",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                },{
+                    "product_id"  : 3,
+                    "product_name": "Cabbage",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "William Henry",
+                    "price"       : "Rp 100/ounce",
+                    "stock"       : "5 ounces",
+                    "picture_url"     : "/files/image/Cabbage.png",
+                    "url"         : "/products/3",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                }
+            ]
+            }
+
+
+
+        
+# Group Search 
+
+## Search [/search]
+
+This section is all about searching for stuffs
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">param</td>
+<td style="padding-left: 0;">Things that the user wanted to search</td> </tr>
+</table>
+
+### Search [GET /search/{param}]
+
+**Return**
+* Object[Product] -> An object of Product that is already filtered. 
+
++ Parameter
+    + param (required,string, `lettuce`) - The things that is searched
+
++ Response 200 (application/json)
+
+            {"message": "FOUND",
+            "state":"Result products",
+            "product":[
+                {
+                    "product_id"  : 1,
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "url"         : "/products/1",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                }
+            ]
+            }
+
+# Group Product
+
+## List of product [/products?page=0&limit=30]
+
+Showing list of products
+
+### Get list of product [GET]
+
+**Return**
+* Array[Product] -> An Array of object Product. 
+
++ Response 200 (application/json)
+
+            {"message":"OK",
+            "state":"List of all Products",
+            "product":[
+                {
+                    "product_id"  : 1,
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "url"         : "/products/1",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                },{
+                    "product_id"  : 2,
+                    "product_name": "Tomato",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Yohana Kanisia",
+                    "price"       : "Rp 500/ounce",
+                    "stock"       : "100 ounces",
+                    "picture_url"     : "/files/image/Tomato.png",
+                    "url"         : "/products/2",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                },{
+                    "product_id"  : 3,
+                    "product_name": "Cabbage",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "William Henry",
+                    "price"       : "Rp 100/ounce",
+                    "stock"       : "5 ounces",
+                    "picture_url"     : "/files/image/Cabbage.png",
+                    "url"         : "/products/3",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                }
+            ]
+            }
+
+## Product detail [/products/{product_id}]
+
+To show the detail of a specific product
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">product_id</td>
+<td style="padding-left: 0;">ID of a product</td> </tr>
+</table>
+
+### See detail [GET]
+
+**Return**
+* Product -> A Product. 
+* Unit of measurement (size) is miligram(mg)
+
++ Parameter
+    + product_id (required,number,`1`) - ID of products in the form of an integer.
+
++ Response 200 (application/json)
+
+          
+           
+                {
+                    "product_id"  : 1,
+                    "message"     : "success",
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "description" : "This is an organic farming product. This is good for you",
+                    "nutrition_fact":[
+                        {
+                        "Composition":"Vitamin A",
+                        "Size": 5,
+                        "Percentage": 10
+                        
+                        }
+                    ]
+                    
+                    
+                }
+           
+        
+        
+        
+
+## See related product [/farmer/{farmer_id}/products]
+
+To GET another items/product from the same farmer
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">farmer_id</td>
+<td style="padding-left: 0;">ID of a farmer</td> </tr>
+</table>
+
+### Get related product [GET]
+
+**Return**
+* Object[Product] -> An object of Product that has the same farmer. 
+
++ Parameter
+    + farmer_id (required,number,`1`) - ID of farmer in the form of an integer.
+
+
++ Response 200 (application/json)
+
+            {"message":"OK",
+            "state":"farmer's products",
+            "url": "/farmer/1/products",
+            "products":[
+                {
+                    "product_id"  : 1,
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "url"         : "/farmer/1/products/1",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                },{
+                    "product_id"  : 4,
+                    "product_name": "Carrot",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 500/ounce",
+                    "stock"       : "100 ounces",
+                    "picture_url"     : "/files/image/Carrot.png",
+                    "url"         : "/farmer/1/products/4",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                },{
+                    "product_id"  : 5,
+                    "product_name": "Kangkung",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 100/ounce",
+                    "stock"       : "5 ounces",
+                    "picture_url"     : "/files/image/Kangkung.png",
+                    "url"         : "/farmer/1/products/5",
+                    "description" : "This is an organic farming product. This is good for you"
+                    
+                    
+                }
+            ]
+            }
+        
+        
+        
+## Add specific product to cart [/shopping_cart/add/{product_id}]
+
+To add a specific item/product to cart
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">product_id</td>
+<td style="padding-left: 0;">ID of a product</td> </tr>
+</table>
+
+### Add to cart [POST]
+
+
++ Parameter
+    + product_id (required,number,`1`) - ID of products in the form of an integer.
+
++ Request (application/json)
+        
+        {
+                "product_id":1,
+                "farmer": "Izhar Almizan",
+                "quantity":2
+                
+                    
+                }
+
++ Response 201 (application/json)
+
+        { 
+            "message":"OK"
+        }
+
+
+
+
+# Group Shopping Cart
+
+## See shopping cart [/shopping_cart/cart/{session_id}]
+
+To Get the whole shopping cart from an user.
+
+
+### See list of product in cart [GET]
+
+**Return**
+* Array[Product] -> An Array of ob ject Product that is in the cart.
+
++ Parameter 
+    + session_id (required,string,`1`) - ID of session in the form of an integer.
+    
++ Request (application/jason)
+    
+        See shopping cart (http://api.insantani.com/shopping_cart/cart/{session_id})
+
++ Response 200 (application/json)
+
+        
+        {"message" : "OK",
+        "state":"list of items in cart",
+        "products":[
+            {
+                "product_id"  : 1,
+                "product_name": "Lettuce",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "farmer"      : "Izhar Almizan",
+                "price"       : "Rp 5000/ounce",
+                "stock"       : "99 ounces",
+                "picture_url"     : "/files/image/Lettuce.png",
+                "url"         : "/products/1",
+                "description" : "This is an organic farming product. This is good for you",
+                "quantity_picked":"2"
+                    
+                    
+                }
+        ]
+        
+            
+        }
+
+
+
+
+
+
+## Edit quantity [/shopping_cart/cart/{session_id}/edit/{product_id}]
+
+To edit the quantity of an item in the shopping cart
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">product_id</td>
+<td style="padding-left: 0;">ID of a product</td> </tr>
+<tr><td style="padding-left: 0;">session_id</td>
+<td style="padding-left: 0;">ID of session</td> </tr>
+</table>
+
+### Edit [PUT]
+
++ Parameter
+    + product_id (required,number,`1`) - ID of products in the form of an integer.
+    + session_id (required,string,`1`) - ID of session in the form of an integer.
+   
++ Request (application/json)
+        
+        {
+                "product_id":1,
+                "farmer": "Izhar Almizan",
+                "quantity":1
+                }
+
+
++ Response 201 (application/json)
+
+        {
+            "message":"Successfully edited"
+        }
+        
+ 
+ 
+ 
+ 
+     
+## Delete product from cart [/shopping_cart/cart/{session_id}/delete/{product_id}]
+
+To delete an item from the shopping cart
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">product_id</td>
+<td style="padding-left: 0;">ID of a product</td> </tr>
+<tr><td style="padding-left: 0;">session_id</td>
+<td style="padding-left: 0;">ID of session</td> </tr>
+</table>
+
+### Delete [DELETE]
+
++ Parameter
+    + product_id (required,number,`1`) - ID of products in the form of an integer.
+    + session_id (required,string,`1`) - ID of session in the form of an integer.
+   
++ Request (application/json)
+
+        {
+                "product_id":1,
+                "farmer": "Izhar Almizan",
+                "quantity":2
+                
+                    
+                }
+
++ Response 201 (application/json)
+
+        {
+            "message":"successfully deleted"
+        }
+     
+        
+        
+        
+## Buy [/shopping_cart/buy/{session_id}]
+
+To place the order of the user
+
+<table style="width: 100%; margin: 12px 0 0 0;">
+<tr><td style="padding-left: 0;" colspan="2"><strong>Required Parameters</strong></td></tr>
+<tr><td style="padding-left: 0;">session_id</td>
+<td style="padding-left: 0;">ID of session</td> </tr>
+</table>
+
+### Buy [POST]
+
++ Parameter
+    + session_id (required,string,`1`) - ID of session in the form of an integer.
+   
++ Request (application/json)
+
+        {"order_id" : 1,
+        "products":[
+            {
+                    "product_id"  : 1,
+                    "product_name": "Lettuce",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "farmer"      : "Izhar Almizan",
+                    "price"       : "Rp 5000/ounce",
+                    "stock"       : "99 ounces",
+                    "picture_url"     : "/files/image/Lettuce.png",
+                    "url"         : "/products/1",
+                    "description" : "This is an organic farming product. This is good for you",
+                    "quantity_picked":"2"
+                    
+                    
+                }
+           
+                
+            ],
+        "checkout_info":
+            {
+                "location"  : "jl. akses UI No. 42, Kelapa dua, Depok",
+                "postcode"  : 16451,
+                "name"      : "William Henry",
+                "phone"     : "082118739862",
+                "email"     : "william@gmail.com"
+            }
+            
+        }
+
++ Response 201 (application/json)
+
+        {
+            "message" : "Successfully created"
+        }
+
+
+
+
+
+
+
+
+
+
+

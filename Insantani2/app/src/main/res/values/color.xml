@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="isantaniGreen">#8BC34A</color>
+    <color name="insantaniWhite">#fbfcfc</color>
+    <color name="isantaniGreen2">#9CCC65</color>
+    <color name="insantaniButtonWhite">#E0E0E0</color>
+    <color name="insantaniButtonBlack">#212121</color>
+    <color name="WhiteBackground">#FAFAFA</color>
+</resources>
